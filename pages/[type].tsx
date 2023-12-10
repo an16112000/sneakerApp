@@ -39,10 +39,13 @@ export default function Menu() {
                 marginTop: '50px',
                 '.css-19micn4-MuiButtonBase-root-MuiPaginationItem-root': {
                     color: '#fff'
+                },
+                '.css-1kz0k3h': {
+                    color: '#fff'
                 }
             }}>
                 <MenuSneaker page={page} />
-                <Pagination count={10} color="secondary" page={page} onChange={(event: ChangeEvent<unknown>, page: number) => handleChangePage(page)} />
+                <Pagination count={10} color="secondary" page={page} onChange={(event: ChangeEvent<unknown>, page: number) => handleChangePage(page)} sx={{color: '#fff'}}/>
             </Stack>
         </Box>
     )
