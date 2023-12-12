@@ -68,12 +68,12 @@ export async function fetchDataDetail(sku: string) {
             if (dataKream?.lowest_normal > dataKream?.lowest_100) {
                 dataKream.lowest_normal = dataKream.lowest_100
             }
-            if ((itemJp?.priceJp * 92 / 100 - 1050) * rateJp - (dataKream?.lowest_normal * 103.8 / 100 + 3000 + 25000) * rateKor > (dataKream?.lowest_normal * 103.8 / 100 + 3000 + 25000) * rateKor * 20 / 100 && dataKream?.lowest_normal != 0) {
+            if ((itemJp?.priceJp * 92 / 100 - 1050) * rateJp - (dataKream?.lowest_normal * 103.8 / 100 + 3000 + 25000) * rateKor > (dataKream?.lowest_normal * 103.8 / 100 + 3000 + 25000) * rateKor * 20 / 100 && dataKream?.lowest_normal > 0) {
                 isSnkrDunkOk = true;
             } else {
                 isSnkrDunkOk = false
             }
-            if (dataKream?.lowest_normal * 95 / 100 * rateKor - ((itemJp?.priceJp * 105.5 / 100 + 990) * rateJp + 500000) > ((itemJp?.priceJp * 105.5 / 100 + 990) * rateJp + 500000) * 20 / 100 && itemJp?.priceJp != 0) {
+            if (dataKream?.lowest_normal * 95 / 100 * rateKor - ((itemJp?.priceJp * 105.5 / 100 + 990) * rateJp + 500000) > ((itemJp?.priceJp * 105.5 / 100 + 990) * rateJp + 500000) * 20 / 100 && itemJp?.priceJp > 0) {
                 isKreamOk = true
             }
             else {
@@ -138,7 +138,7 @@ async function isSnkrDunkOkFunction(id: string, sku: string) {
             if ((itemJp?.priceJp * 92 / 100 - 1050) * rateJp - (dataKream?.lowest_normal * 103.8 / 100 + 3000 + 25000) * rateKor > (dataKream?.lowest_normal * 103.8 / 100 + 3000 + 25000) * rateKor * 20 / 100 && dataKream?.lowest_normal > 0) {
                 isSnkrDunkOk = true;
             }
-            if (dataKream?.lowest_normal * 95 / 100 * rateKor - ((itemJp?.priceJp * 105.5 / 100 + 990) * rateJp + 500000) > (((itemJp?.priceJp * 105.5 / 100 + 990) * rateJp + 500000) * 20 / 100) && itemJp?.priceJp != 0) {
+            if (dataKream?.lowest_normal * 95 / 100 * rateKor - ((itemJp?.priceJp * 105.5 / 100 + 990) * rateJp + 500000) > (((itemJp?.priceJp * 105.5 / 100 + 990) * rateJp + 500000) * 20 / 100) && itemJp?.priceJp > 0) {
                 isKreamOk = true
             }
         }
