@@ -27,12 +27,9 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme, isSnkrDunk }) => ({
-    // '&:nth-of-type(odd)': {
-    //     backgroundColor: isSnkrDunk ? {
-    //         backgroundColor: '#51a0f8',
-    //         color: '#fff'
-    //     } : theme.palette.action.hover,
+const StyledTableRow = styled(TableRow)(() => ({
+    // '&:nth-of-type(odd)': theme.palette.action.hover,
+    // '&:nth-of-type(odd)': '',
     // },
     // hide last border
     '&:last-child td, &:last-child th': {
