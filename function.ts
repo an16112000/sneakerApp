@@ -65,7 +65,7 @@ export async function fetchDataDetail(sku: string) {
                     return itemJp?.sizeJp == itemKor.option
                 }
             )
-            if ((itemJp?.priceJp * 108 / 100 + 1050) * rateJp - (dataKream?.lowest_normal * 103.8 / 100 + 3000 + 25000) * rateKor > (dataKream?.lowest_normal * 103.8 / 100 + 3000 + 25000) * rateKor * 20 / 100 && dataKream?.lowest_normal != 0) {
+            if ((itemJp?.priceJp * 92 / 100 - 1050) * rateJp - (dataKream?.lowest_normal * 103.8 / 100 + 3000 + 25000) * rateKor > (dataKream?.lowest_normal * 103.8 / 100 + 3000 + 25000) * rateKor * 20 / 100 && dataKream?.lowest_normal != 0) {
                 isSnkrDunkOk = true;
             } else {
                 isSnkrDunkOk = false
@@ -79,7 +79,7 @@ export async function fetchDataDetail(sku: string) {
             return {
                 priceKor: dataKream?.lowest_normal ? VND.format((dataKream?.lowest_normal * 103.8 / 100 + 3000 + 25000) * rateKor) : VND.format(0),
                 ...itemJp,
-                priceJp: itemJp?.priceJp ? VND.format((itemJp?.priceJp * 108 / 100 + 1050) * rateJp) : VND.format(0),
+                priceJp: itemJp?.priceJp ? VND.format((itemJp?.priceJp * 92 / 100 - 1050) * rateJp) : VND.format(0),
                 isKreamOk,
                 isSnkrDunkOk
             }
