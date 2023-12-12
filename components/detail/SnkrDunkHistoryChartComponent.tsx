@@ -82,7 +82,7 @@ export default function SnkrDunkHistoryChartComponent({ list }: SnkrDunkHistoryC
                                 </StyledTableCell>
                                 <StyledTableCell align="right">{item?.size || 0}</StyledTableCell>
                                 {/* <StyledTableCell align="right">{}</StyledTableCell> */}
-                                <StyledTableCell align="right">{VND.format((item?.price * 108 / 100 + 1050)*rateJp)}</StyledTableCell>
+                                <StyledTableCell align="right">{VND.format((item?.price * 92 / 100 - 1050)*rateJp)}</StyledTableCell>
                                 <StyledTableCell align="right">{item?.date}</StyledTableCell>
                             </StyledTableRow>
                         ))}
