@@ -27,9 +27,12 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
+const StyledTableRow = styled(TableRow)(({ theme, isSnkrDunk }) => ({
     '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
+        backgroundColor: isSnkrDunk ? {
+            backgroundColor: '#51a0f8',
+            color: '#fff'
+        } : theme.palette.action.hover,
     },
     // hide last border
     '&:last-child td, &:last-child th': {
@@ -47,18 +50,6 @@ function createData(
     return { name, calories, fat, carbs, protein };
 }
 
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-];
-
 export default function SalesChartComponent({ sku }: SaleChartComponentProps) {
     const [dataSneaker, setDataSneaker] = useState([])
     useEffect(
@@ -73,6 +64,7 @@ export default function SalesChartComponent({ sku }: SaleChartComponentProps) {
             }
         }, [sku]
     )
+    console.log(dataSneaker)
     return (
         <Stack flex={1} sx={{
             '.MuiTableContainer-root.MuiTableContainer-root': {
@@ -93,8 +85,9 @@ export default function SalesChartComponent({ sku }: SaleChartComponentProps) {
                         </TableRow>
                     </TableHead>
                     <TableBody sx={{ heigh: '50px', overflow: 'hidden' }}>
-                        {dataSneaker.map((item: any, index) => (
-                            <StyledTableRow key={index} sx={item.isSnkrDunkOk && {
+                        {dataSneaker.map((item: any, index) => {
+                            console.log(item.isSnkrDunkOk)
+                            return <StyledTableRow key={index} isSnkrDunk={item.isSnkrDunkOk} sx={item.isSnkrDunkOk && {
                                 backgroundColor: '#51a0f8',
                                 color: '#fff'
                             }}>
@@ -106,7 +99,7 @@ export default function SalesChartComponent({ sku }: SaleChartComponentProps) {
                                 <StyledTableCell align="right">{item?.priceJp}</StyledTableCell>
                                 <StyledTableCell align="right">{item?.amounts}</StyledTableCell>
                             </StyledTableRow>
-                        ))}
+                        })}
                     </TableBody>
                 </Table>
             </TableContainer>
