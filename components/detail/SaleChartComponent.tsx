@@ -84,7 +84,7 @@ export default function SalesChartComponent({ sku }: SaleChartComponentProps) {
                     <TableBody sx={{ heigh: '50px', overflow: 'hidden' }}>
                         {dataSneaker.map((item: any, index) => {
                             console.log(item.isSnkrDunkOk)
-                            return <StyledTableRow key={index} isSnkrDunk={item.isSnkrDunkOk} sx={item.isSnkrDunkOk && {
+                            return <StyledTableRow key={index} sx={item.isSnkrDunkOk && {
                                 backgroundColor: '#51a0f8',
                                 color: '#fff'
                             }}>
