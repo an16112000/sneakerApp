@@ -132,7 +132,7 @@ export default function useHomeApi() {
 
     async function getDetailSneakerKream(id: string) {
         try {
-            // console.log(id)
+            console.log(`https://kream.co.kr/api/p/products/${id}?base_product_id=${id}&request_key=182a66fc-afe0-4e9d-8e0a-49bddf736e26`)
             const response = await axiosInstanceKream(`https://kream.co.kr/api/p/products/${id}?base_product_id=${id}&request_key=182a66fc-afe0-4e9d-8e0a-49bddf736e26`)
             // const rateKor = await getRateKor()
             const data = response.data.sales_options
