@@ -28,7 +28,7 @@ export default function DetailSneakerPage() {
     return (
         <Box sx={{ position: 'relative' }}>
             <Header />
-            <Stack sx={{padding: '10px'}}>
+            <Stack sx={{padding: '30px 30px', backgroundColor: '#000'}}>
                 <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
                     <ImageSneakerComponent sku={sku as string} id={id}/>
                     <SalesChartComponent sku={sku as string} />

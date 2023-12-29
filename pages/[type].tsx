@@ -37,6 +37,8 @@ export default function Menu() {
             {/* <MenuSneaker /> */}
             <Stack alignItems={'center'} spacing={2} sx={{
                 marginTop: '50px',
+                backgroundColor: '#000',
+                padding: '30px 30px',
                 '.css-19micn4-MuiButtonBase-root-MuiPaginationItem-root': {
                     color: '#fff'
                 },
