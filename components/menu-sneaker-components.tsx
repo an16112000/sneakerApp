@@ -10,7 +10,6 @@ interface MenuSneakerComponentsProps {
 }
 
 export default function MenuSneakerComponents({ list }: MenuSneakerComponentsProps) {
-    console.log(list)
     const router = useRouter()
 
     if (list.length != 0) {

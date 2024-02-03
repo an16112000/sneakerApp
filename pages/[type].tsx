@@ -18,19 +18,16 @@ export default function Menu() {
     useEffect(
         () => {
             setPage(1)
-            console.log(asPath)
         }, [asPath]
     )
 
     function handleChangePage(page: any) {
-        console.log(typeof page)
         setPage(page)
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
     }
-    console.log(page)
     return (
         <Box>
             <Header />

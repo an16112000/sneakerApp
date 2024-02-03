@@ -57,11 +57,9 @@ export default function SalesChartComponent({ sku }: SaleChartComponentProps) {
             async function fetchData() {
                 const data = await fetchDataDetail(sku)
                 setDataSneaker(data)
-                console.log(data)
             }
         }, [sku]
     )
-    console.log(dataSneaker)
     return (
         <Stack flex={1} sx={{
             '.MuiTableContainer-root.MuiTableContainer-root': {
@@ -83,7 +81,6 @@ export default function SalesChartComponent({ sku }: SaleChartComponentProps) {
                     </TableHead>
                     <TableBody sx={{ heigh: '50px', overflow: 'hidden' }}>
                         {dataSneaker.map((item: any, index) => {
-                            console.log(item.isSnkrDunkOk)
                             return <StyledTableRow key={index} sx={item.isSnkrDunkOk && {
                                 backgroundColor: '#51a0f8',
                                 color: '#fff'

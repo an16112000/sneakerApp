@@ -4,11 +4,11 @@ import axios from "axios";
 
 const axiosInstanceKream = axios.create({
     headers: {
-        
+
         // Authorization: `Bearer ${localStorage.getItem('token')}`,
         'X-Kream-Device-Id': 'web;a92b0217-7110-4b01-ac11-8b57af9151ff',
         'X-Kream-Client-Datetime': '20231209171950+0700',
-        'X-Kream-Api-Version': '25',
+        'X-Kream-Api-Version': '27',
     }
 })
 
@@ -49,20 +49,16 @@ export default function useHomeApi() {
             const data = response.data.data.postSneakerMap
             return data
         } catch (Error) {
-            console.log(Error)
         }
     }
 
     async function getImagesAndNames(type: string, page: number) {
         try {
-            console.log('type: ', type, 'page: ', page)
             const response = await axiosInstanceSoldOut.get(`https://www.soldout.co.kr/api/v3/search/get-item-list?&typeGb=goods&pageIndex=${page}&pageSize=12&keyword=${type}`)
             const data = response.data.data.product_info.list
-            console.log(data)
             return data
         }
         catch (Error) {
-            console.log(Error)
         }
     }
 
@@ -72,7 +68,6 @@ export default function useHomeApi() {
             const data = response.data.data.product_info.item_detail_image[0]
             return data
         } catch (Error) {
-            console.log(Error)
         }
     }
 
@@ -83,7 +78,6 @@ export default function useHomeApi() {
             const data = response.data.minPrice
             return data
         } catch (Error) {
-            console.log(Error)
         }
     }
 
@@ -94,7 +88,6 @@ export default function useHomeApi() {
             const data = temp[temp.length - 1].value
             return data
         } catch (Error) {
-            console.log(Error)
         }
     }
 
@@ -105,7 +98,6 @@ export default function useHomeApi() {
             const data = temp[temp.length - 1].value
             return data
         } catch (Error) {
-            console.log(Error)
         }
     }
 
@@ -117,7 +109,6 @@ export default function useHomeApi() {
             return data
         }
         catch (Error) {
-            console.log(Error)
         }
     }
 
@@ -132,8 +123,8 @@ export default function useHomeApi() {
 
     async function getDetailSneakerKream(id: string) {
         try {
-            console.log(`https://kream.co.kr/api/p/products/${id}?base_product_id=${id}&request_key=182a66fc-afe0-4e9d-8e0a-49bddf736e26`)
-            const response = await axiosInstanceKream(`https://kream.co.kr/api/p/products/${id}?base_product_id=${id}&request_key=182a66fc-afe0-4e9d-8e0a-49bddf736e26`)
+            const response = await axiosInstanceKream(`https://kream.co.kr/api/p/products/${id}?base_product_id=${id}&request_key=3c4dde26-db75-45ff-a948-cff5598da55f`)
+            // https://kream.co.kr/api/p/products/83900?base_product_id=27986&request_key=3c4dde26-db75-45ff-a948-cff5598da55f
             // const rateKor = await getRateKor()
             const data = response.data.sales_options
             // const newArray = data.map(
@@ -145,7 +136,6 @@ export default function useHomeApi() {
             // return newArray
             return data
         } catch (Error) {
-            console.log(Error)
         }
     }
 
@@ -168,28 +158,26 @@ export default function useHomeApi() {
             )
             return newArray
         } catch (Error) {
-            console.log(Error)
         }
     }
 
     async function getHistorySnkrDunk(sku: string) {
-        try{
+        try {
             const skuWithoutSpace = getSubstringBeforeSpace(sku);
             const response = await axiosInstanceJp.get(`https://snkrdunk.com/v1/products/${skuWithoutSpace}/sales-history?size_id&page=1&per_page=50`)
             const data = response.data.history
             return data
-        } catch(Error) {
-            console.log(Error)
+        } catch (Error) {
         }
     }
 
     async function getHistoryKream(id: string) {
-        try{
+        try {
             let item
             if (typeof window !== 'undefined') {
                 // Perform localStorage action
                 item = localStorage.getItem('token')
-              }
+            }
             const response = await axiosInstanceKream.get(`https://kream.co.kr/api/p/products/${id}/sales?cursor=1&per_page=50&sort=date_created[desc]&request_key=196a4ccc-c9f6-40e1-9e25-518da2e398b8`, {
                 headers: {
                     Authorization: `Bearer ${item}`
@@ -197,8 +185,7 @@ export default function useHomeApi() {
             })
             const data = response.data.items
             return data
-        } catch(Error) {
-            console.log(Error)
+        } catch (Error) {
         }
     }
 

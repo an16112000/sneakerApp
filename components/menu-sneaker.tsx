@@ -33,7 +33,6 @@ export default function MenuSneaker({page}: MenuSneakerProps) {
             }
         }, [type, page]
     )
-        console.log(listSneaker)
     if (listSneaker.length != 0) {
         return (
             <Box>

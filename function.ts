@@ -14,11 +14,18 @@ export default async function fetchDataMenu(type: string, page: number) {
                     const rateJp = await getRateJp()
                     const minPriceJp = await getMinPriceJp(item.model_no)
                     const dataKream = await getMinPriceKream(item.model_no)
-                    console.log(dataKream, item.model_no)
                     const idKream = dataKream.release.id
                     const isOk = await isSnkrDunkOkFunction(idKream, item.model_no)
                     const minPriceKream = dataKream.market.lowest_ask
                     const rateKor = await getRateKor()
+                    console.log('item: ', item)
+                    console.log('rateJp: ', rateJp )
+                    console.log('minPriceJp: ', minPriceJp )
+                    console.log('dataKream: ', dataKream )
+                    console.log('idKream: ', idKream )
+                    console.log('isOk: ', isOk )
+                    console.log('minPriceKream: ', minPriceKream )
+                    console.log('rateKor: ', rateKor )
                     listData.push(
                         {
                             ...item,
@@ -28,7 +35,6 @@ export default async function fetchDataMenu(type: string, page: number) {
                         }
                     )
                 } catch (Error) {
-                    console.log(Error)
                 }
             }
         )
@@ -40,7 +46,6 @@ export default async function fetchDataMenu(type: string, page: number) {
 }
 
 export async function fetchDataDetail(sku: string) {
-    console.log(sku)
     const { getDetailSneakerKream, getDetailSneakerJp, getMinPriceKream, getRateKor, getRateJp } = useHomeApi()
     const dataKream = await getMinPriceKream(sku)
     const idKream = dataKream.release.id
@@ -88,7 +93,6 @@ export async function fetchDataDetail(sku: string) {
             //     isKreamOk,
             //     isSnkrDunkOk
             // })
-            console.log(lowestPriceKor)
             return {
                 priceKor: lowestPriceKor ? VND.format((lowestPriceKor * 103.8 / 100 + 3000 + 25000) * rateKor) : VND.format(0),
                 ...itemJp,

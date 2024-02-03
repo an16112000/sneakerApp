@@ -20,8 +20,6 @@ export default function HistoryChartComponent({ sku }: HistoryChartComponentProp
             async function fetchData() {
                 const dataSnkrDunk = await getHistorySneakerSnkrDunk(sku)
                 const dataKream = await getHistorySneakerKream(sku)
-                console.log('SnkrDunk: ', dataSnkrDunk)
-                console.log('Kream: ', dataKream)
                 setHistorySnkrDunkData(dataSnkrDunk)
                 setHistoryKreamData(dataKream)
             }
